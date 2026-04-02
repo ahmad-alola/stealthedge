@@ -5,10 +5,10 @@
 }
 
 :root {
-  --bg-1: #07111f;
-  --bg-2: #0f1f38;
-  --card: rgba(10, 18, 32, 0.78);
-  --border: rgba(255, 255, 255, 0.12);
+  --bg-1: #030814;
+  --bg-2: #07172c;
+  --card: rgba(5, 14, 28, 0.72);
+  --border: rgba(255, 255, 255, 0.10);
   --text: #f5f7fb;
   --muted: #b8c2d6;
   --accent: #65d6ff;
@@ -19,11 +19,9 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(101, 214, 255, 0.12), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(139, 255, 176, 0.10), transparent 30%),
-    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  background: radial-gradient(circle at top, #0b1d3a 0%, #030814 70%);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .hero {
@@ -35,28 +33,113 @@ body {
   overflow: hidden;
 }
 
+/* ===== STAR LAYERS ===== */
+.stars,
+.twinkling,
+.shooting-stars,
 .overlay {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.45));
   pointer-events: none;
 }
 
+.stars {
+  background:
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 140px 80px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 300px 120px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 500px 200px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 700px 150px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 900px 260px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 1100px 100px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 1300px 220px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 1600px 180px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 200px 400px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 450px 500px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 800px 420px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 1200px 480px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 1500px 560px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 1000px 700px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 300px 760px, rgba(255,255,255,0.8), transparent);
+  background-repeat: repeat;
+  background-size: 1800px 900px;
+  opacity: 0.85;
+}
+
+.twinkling {
+  background:
+    radial-gradient(circle, rgba(101,214,255,0.14) 0%, transparent 55%),
+    radial-gradient(circle, rgba(139,255,176,0.10) 0%, transparent 50%);
+  background-size: 600px 600px, 800px 800px;
+  animation: pulseSky 8s ease-in-out infinite alternate;
+  opacity: 0.5;
+}
+
+.overlay {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.5));
+}
+
+/* ===== SHOOTING STARS ===== */
+.shooting-stars span {
+  position: absolute;
+  width: 160px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
+  border-radius: 999px;
+  opacity: 0;
+  transform: rotate(-25deg);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+  animation: shoot 8s linear infinite;
+}
+
+.shooting-stars span:nth-child(1) {
+  top: 12%;
+  left: 70%;
+  animation-delay: 0s;
+}
+
+.shooting-stars span:nth-child(2) {
+  top: 22%;
+  left: 85%;
+  animation-delay: 2.5s;
+}
+
+.shooting-stars span:nth-child(3) {
+  top: 35%;
+  left: 60%;
+  animation-delay: 4.2s;
+}
+
+.shooting-stars span:nth-child(4) {
+  top: 18%;
+  left: 40%;
+  animation-delay: 6s;
+}
+
+.shooting-stars span:nth-child(5) {
+  top: 28%;
+  left: 78%;
+  animation-delay: 7.2s;
+}
+
+/* ===== CARD ===== */
 .card {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1100px;
   padding: 72px 64px;
   border: 1px solid var(--border);
   border-radius: 30px;
   background: var(--card);
   backdrop-filter: blur(16px);
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--shadow),
+    0 0 80px rgba(101, 214, 255, 0.08);
   text-align: center;
 }
 
@@ -70,13 +153,15 @@ body {
   font-size: 14px;
   letter-spacing: 3px;
   font-weight: 700;
+  box-shadow: 0 0 18px rgba(101,214,255,0.12);
 }
 
 h1 {
-  font-size: clamp(3.6rem, 8vw, 6.6rem);
+  font-size: clamp(3.8rem, 8vw, 6.8rem);
   line-height: 1.02;
   margin-bottom: 12px;
   letter-spacing: -2px;
+  text-shadow: 0 0 24px rgba(255,255,255,0.08);
 }
 
 .owner {
@@ -129,8 +214,8 @@ h1 {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.96;
+  transform: translateY(-2px) scale(1.02);
+  opacity: 0.98;
 }
 
 .footer {
@@ -139,6 +224,37 @@ h1 {
   letter-spacing: 0.4px;
 }
 
+/* ===== ANIMATIONS ===== */
+@keyframes pulseSky {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.08);
+    opacity: 0.6;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-25deg);
+  }
+  8% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+    transform: translate(-500px, 260px) rotate(-25deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-500px, 260px) rotate(-25deg);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .card {
     padding: 48px 28px;
@@ -151,6 +267,10 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  body {
+    overflow: auto;
+  }
+
   .card {
     padding: 34px 20px;
     border-radius: 20px;
