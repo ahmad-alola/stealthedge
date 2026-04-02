@@ -5,21 +5,22 @@
 }
 
 :root {
-  --bg-1: #030814;
+  --bg-1: #020611;
   --bg-2: #07172c;
-  --card: rgba(5, 14, 28, 0.72);
+  --card: rgba(5, 14, 28, 0.48);
   --border: rgba(255, 255, 255, 0.10);
   --text: #f5f7fb;
   --muted: #b8c2d6;
   --accent: #65d6ff;
   --accent-2: #8bffb0;
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at top, #0b1d3a 0%, #030814 70%);
+  background:
+    radial-gradient(circle at top, #0b1d3a 0%, #05101f 35%, #020611 75%);
   min-height: 100vh;
   overflow: hidden;
 }
@@ -33,11 +34,10 @@ body {
   overflow: hidden;
 }
 
-/* ===== STAR LAYERS ===== */
+/* ===== STAR SKY ===== */
 .stars,
 .twinkling,
-.shooting-stars,
-.overlay {
+.shooting-stars {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -45,86 +45,86 @@ body {
 
 .stars {
   background:
-    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(1.5px 1.5px at 140px 80px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 300px 120px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(1.5px 1.5px at 500px 200px, rgba(255,255,255,0.7), transparent),
-    radial-gradient(2px 2px at 700px 150px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(1.5px 1.5px at 140px 80px, rgba(255,255,255,0.75), transparent),
+    radial-gradient(2px 2px at 300px 120px, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1.5px 1.5px at 500px 200px, rgba(255,255,255,0.75), transparent),
+    radial-gradient(2px 2px at 700px 150px, rgba(255,255,255,0.85), transparent),
     radial-gradient(1.5px 1.5px at 900px 260px, rgba(255,255,255,0.9), transparent),
     radial-gradient(2px 2px at 1100px 100px, rgba(255,255,255,0.8), transparent),
     radial-gradient(1.5px 1.5px at 1300px 220px, rgba(255,255,255,0.8), transparent),
     radial-gradient(2px 2px at 1600px 180px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(1.5px 1.5px at 200px 400px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 200px 400px, rgba(255,255,255,0.85), transparent),
     radial-gradient(2px 2px at 450px 500px, rgba(255,255,255,0.9), transparent),
     radial-gradient(1.5px 1.5px at 800px 420px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 1200px 480px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 1200px 480px, rgba(255,255,255,0.85), transparent),
     radial-gradient(1.5px 1.5px at 1500px 560px, rgba(255,255,255,0.9), transparent),
     radial-gradient(2px 2px at 1000px 700px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1.5px 1.5px at 300px 760px, rgba(255,255,255,0.8), transparent);
+    radial-gradient(1.5px 1.5px at 300px 760px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 1700px 650px, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1.5px 1.5px at 1450px 90px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 90px 650px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 600px 720px, rgba(255,255,255,0.85), transparent);
   background-repeat: repeat;
   background-size: 1800px 900px;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 .twinkling {
   background:
-    radial-gradient(circle, rgba(101,214,255,0.14) 0%, transparent 55%),
-    radial-gradient(circle, rgba(139,255,176,0.10) 0%, transparent 50%);
-  background-size: 600px 600px, 800px 800px;
-  animation: pulseSky 8s ease-in-out infinite alternate;
-  opacity: 0.5;
-}
-
-.overlay {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.5));
+    radial-gradient(circle at 20% 20%, rgba(101,214,255,0.10) 0%, transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(139,255,176,0.08) 0%, transparent 24%),
+    radial-gradient(circle at 50% 70%, rgba(101,214,255,0.06) 0%, transparent 32%);
+  animation: pulseSky 9s ease-in-out infinite alternate;
+  opacity: 0.55;
 }
 
 /* ===== SHOOTING STARS ===== */
 .shooting-stars span {
   position: absolute;
-  width: 160px;
+  width: 180px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.95));
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.98));
   border-radius: 999px;
   opacity: 0;
   transform: rotate(-25deg);
   filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
-  animation: shoot 8s linear infinite;
 }
 
-.shooting-stars span:nth-child(1) {
-  top: 12%;
-  left: 70%;
-  animation-delay: 0s;
+.shooting-stars span::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -1px;
+  width: 8px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 12px rgba(255,255,255,0.9);
 }
 
-.shooting-stars span:nth-child(2) {
-  top: 22%;
-  left: 85%;
-  animation-delay: 2.5s;
+.shooting-stars span.fast {
+  animation: shootFast 4.8s linear infinite;
 }
 
-.shooting-stars span:nth-child(3) {
-  top: 35%;
-  left: 60%;
-  animation-delay: 4.2s;
+.shooting-stars span.medium {
+  animation: shootMedium 7s linear infinite;
 }
 
-.shooting-stars span:nth-child(4) {
-  top: 18%;
-  left: 40%;
-  animation-delay: 6s;
+.shooting-stars span.slow {
+  animation: shootSlow 10s linear infinite;
 }
 
-.shooting-stars span:nth-child(5) {
-  top: 28%;
-  left: 78%;
-  animation-delay: 7.2s;
-}
+.shooting-stars span:nth-child(1)  { top: 10%; left: 78%; animation-delay: 0s; }
+.shooting-stars span:nth-child(2)  { top: 18%; left: 62%; animation-delay: 1.5s; }
+.shooting-stars span:nth-child(3)  { top: 24%; left: 88%; animation-delay: 2.7s; }
+.shooting-stars span:nth-child(4)  { top: 14%; left: 45%; animation-delay: 0.8s; }
+.shooting-stars span:nth-child(5)  { top: 30%; left: 74%; animation-delay: 3.6s; }
+.shooting-stars span:nth-child(6)  { top: 38%; left: 92%; animation-delay: 5s; }
+.shooting-stars span:nth-child(7)  { top: 8%;  left: 58%; animation-delay: 4.1s; }
+.shooting-stars span:nth-child(8)  { top: 22%; left: 35%; animation-delay: 6.4s; }
+.shooting-stars span:nth-child(9)  { top: 27%; left: 67%; animation-delay: 7.3s; }
+.shooting-stars span:nth-child(10) { top: 34%; left: 52%; animation-delay: 2.1s; }
 
 /* ===== CARD ===== */
 .card {
@@ -133,13 +133,13 @@ body {
   width: 100%;
   max-width: 1100px;
   padding: 72px 64px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 30px;
   background: var(--card);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
   box-shadow:
     var(--shadow),
-    0 0 80px rgba(101, 214, 255, 0.08);
+    0 0 60px rgba(101, 214, 255, 0.05);
   text-align: center;
 }
 
@@ -228,15 +228,33 @@ h1 {
 @keyframes pulseSky {
   0% {
     transform: scale(1);
-    opacity: 0.35;
+    opacity: 0.4;
   }
   100% {
-    transform: scale(1.08);
+    transform: scale(1.04);
     opacity: 0.6;
   }
 }
 
-@keyframes shoot {
+@keyframes shootFast {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-25deg);
+  }
+  6% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-560px, 290px) rotate(-25deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-560px, 290px) rotate(-25deg);
+  }
+}
+
+@keyframes shootMedium {
   0% {
     opacity: 0;
     transform: translate(0, 0) rotate(-25deg);
@@ -244,13 +262,31 @@ h1 {
   8% {
     opacity: 1;
   }
-  25% {
+  28% {
     opacity: 0;
-    transform: translate(-500px, 260px) rotate(-25deg);
+    transform: translate(-520px, 270px) rotate(-25deg);
   }
   100% {
     opacity: 0;
-    transform: translate(-500px, 260px) rotate(-25deg);
+    transform: translate(-520px, 270px) rotate(-25deg);
+  }
+}
+
+@keyframes shootSlow {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-25deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  36% {
+    opacity: 0;
+    transform: translate(-480px, 250px) rotate(-25deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-480px, 250px) rotate(-25deg);
   }
 }
 
@@ -274,6 +310,7 @@ h1 {
   .card {
     padding: 34px 20px;
     border-radius: 20px;
+    background: rgba(5, 14, 28, 0.58);
   }
 
   .badge {
