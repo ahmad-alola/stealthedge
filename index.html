@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stealth Edge | Coming Soon</title>
+  <meta
+    name="description"
+    content="Stealth Edge is an upcoming electronics project blended with artificial intelligence."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="hero">
+    <div class="overlay"></div>
+
+    <section class="card">
+      <p class="badge">COMING SOON</p>
+
+      <h1 id="title">Stealth Edge</h1>
+
+      <p class="subtitle" id="subtitle">
+        Electronics meets artificial intelligence.
+      </p>
+
+      <div class="lines" id="lines">
+        <p>Innovative electronic projects are on the way.</p>
+        <p>Designed with practical technology and integrated AI.</p>
+        <p>A portfolio and future products will be available here soon.</p>
+      </div>
+
+      <div class="actions">
+        <a
+          id="portfolioLink"
+          class="btn primary"
+          href="https://ahmadaboalola.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Portfolio
+        </a>
+      </div>
+
+      <p class="footer" id="footerText">
+        Built by Ahmad Abo-Alola
+      </p>
+    </section>
+  </main>
+
+  <script>
+    fetch("site.json")
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("title").textContent = data.title;
+        document.getElementById("subtitle").textContent = data.subtitle;
+
+        const linesContainer = document.getElementById("lines");
+        linesContainer.innerHTML = "";
+        data.lines.forEach((line) => {
+          const p = document.createElement("p");
+          p.textContent = line;
+          linesContainer.appendChild(p);
+        });
+
+        const portfolioLink = document.getElementById("portfolioLink");
+        portfolioLink.href = data.portfolio.url;
+        portfolioLink.textContent = data.portfolio.label;
+
+        document.getElementById("footerText").textContent = data.footer;
+      })
+      .catch((error) => {
+        console.error("Could not load site.json:", error);
+      });
+  </script>
+</body>
+</html>
