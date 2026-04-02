@@ -5,141 +5,249 @@
 }
 
 :root {
-  --bg-1: #020611;
-  --bg-2: #07172c;
-  --card: rgba(5, 14, 28, 0.48);
-  --border: rgba(255, 255, 255, 0.10);
+  --bg-main: #020611;
+  --bg-deep: #040b18;
+  --bg-top: #0a1830;
+  --card-bg: rgba(7, 16, 30, 0.34);
+  --card-border: rgba(255, 255, 255, 0.09);
   --text: #f5f7fb;
-  --muted: #b8c2d6;
-  --accent: #65d6ff;
-  --accent-2: #8bffb0;
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  --muted: #b9c5d9;
+  --accent: #6ddcff;
+  --accent-2: #9bffcb;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top, #0b1d3a 0%, #05101f 35%, #020611 75%);
-  min-height: 100vh;
+    radial-gradient(circle at 50% 0%, #10274a 0%, #071225 28%, #030813 60%, #020611 100%);
   overflow: hidden;
 }
 
 .hero {
   min-height: 100vh;
+  position: relative;
   display: grid;
   place-items: center;
   padding: 28px;
-  position: relative;
   overflow: hidden;
 }
 
-/* ===== STAR SKY ===== */
+/* =========================
+   SPACE BACKGROUND
+========================= */
+
+.space-bg,
 .stars,
-.twinkling,
-.shooting-stars {
+.twinkle-layer,
+.shooting-stars,
+.nebula {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
+.space-bg {
+  z-index: 0;
+}
+
+.nebula {
+  filter: blur(70px);
+  opacity: 0.22;
+  animation: floatNebula 18s ease-in-out infinite alternate;
+}
+
+.nebula-1 {
+  background: radial-gradient(circle, rgba(64, 180, 255, 0.55) 0%, transparent 60%);
+  width: 38vw;
+  height: 38vw;
+  top: -10%;
+  left: -8%;
+}
+
+.nebula-2 {
+  background: radial-gradient(circle, rgba(124, 255, 201, 0.35) 0%, transparent 60%);
+  width: 34vw;
+  height: 34vw;
+  top: 45%;
+  right: -8%;
+  animation-duration: 22s;
+}
+
+.nebula-3 {
+  background: radial-gradient(circle, rgba(115, 138, 255, 0.30) 0%, transparent 62%);
+  width: 30vw;
+  height: 30vw;
+  top: 12%;
+  right: 24%;
+  animation-duration: 26s;
+}
+
 .stars {
-  background:
-    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.95), transparent),
-    radial-gradient(1.5px 1.5px at 140px 80px, rgba(255,255,255,0.75), transparent),
-    radial-gradient(2px 2px at 300px 120px, rgba(255,255,255,0.85), transparent),
-    radial-gradient(1.5px 1.5px at 500px 200px, rgba(255,255,255,0.75), transparent),
-    radial-gradient(2px 2px at 700px 150px, rgba(255,255,255,0.85), transparent),
-    radial-gradient(1.5px 1.5px at 900px 260px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(2px 2px at 1100px 100px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1.5px 1.5px at 1300px 220px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 1600px 180px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(1.5px 1.5px at 200px 400px, rgba(255,255,255,0.85), transparent),
-    radial-gradient(2px 2px at 450px 500px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(1.5px 1.5px at 800px 420px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 1200px 480px, rgba(255,255,255,0.85), transparent),
-    radial-gradient(1.5px 1.5px at 1500px 560px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(2px 2px at 1000px 700px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1.5px 1.5px at 300px 760px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 1700px 650px, rgba(255,255,255,0.85), transparent),
-    radial-gradient(1.5px 1.5px at 1450px 90px, rgba(255,255,255,0.9), transparent),
-    radial-gradient(2px 2px at 90px 650px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1.5px 1.5px at 600px 720px, rgba(255,255,255,0.85), transparent);
   background-repeat: repeat;
+  opacity: 1;
+}
+
+.stars-small {
+  background-image:
+    radial-gradient(1px 1px at 25px 35px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(1px 1px at 110px 140px, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1px 1px at 220px 70px, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1px 1px at 340px 180px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 450px 50px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 560px 240px, rgba(255,255,255,0.78), transparent),
+    radial-gradient(1px 1px at 700px 120px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 820px 300px, rgba(255,255,255,0.88), transparent),
+    radial-gradient(1px 1px at 940px 80px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 1080px 220px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 1220px 130px, rgba(255,255,255,0.76), transparent),
+    radial-gradient(1px 1px at 1340px 260px, rgba(255,255,255,0.84), transparent),
+    radial-gradient(1px 1px at 1460px 90px, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1px 1px at 1580px 200px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 1700px 60px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 180px 420px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 360px 520px, rgba(255,255,255,0.75), transparent),
+    radial-gradient(1px 1px at 620px 460px, rgba(255,255,255,0.86), transparent),
+    radial-gradient(1px 1px at 860px 540px, rgba(255,255,255,0.82), transparent),
+    radial-gradient(1px 1px at 1120px 500px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(1px 1px at 1360px 580px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 1620px 490px, rgba(255,255,255,0.84), transparent),
+    radial-gradient(1px 1px at 260px 760px, rgba(255,255,255,0.78), transparent),
+    radial-gradient(1px 1px at 540px 720px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 880px 760px, rgba(255,255,255,0.82), transparent),
+    radial-gradient(1px 1px at 1260px 720px, rgba(255,255,255,0.88), transparent),
+    radial-gradient(1px 1px at 1520px 780px, rgba(255,255,255,0.74), transparent);
   background-size: 1800px 900px;
+  animation: driftStarsA 120s linear infinite;
+  opacity: 0.7;
+}
+
+.stars-medium {
+  background-image:
+    radial-gradient(1.5px 1.5px at 90px 90px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(1.5px 1.5px at 270px 210px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 520px 110px, rgba(255,255,255,0.88), transparent),
+    radial-gradient(1.5px 1.5px at 740px 190px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1.5px 1.5px at 960px 150px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 1180px 260px, rgba(255,255,255,0.92), transparent),
+    radial-gradient(1.5px 1.5px at 1440px 140px, rgba(255,255,255,0.82), transparent),
+    radial-gradient(1.5px 1.5px at 1660px 260px, rgba(255,255,255,0.92), transparent),
+    radial-gradient(1.5px 1.5px at 210px 610px, rgba(255,255,255,0.88), transparent),
+    radial-gradient(1.5px 1.5px at 610px 540px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(1.5px 1.5px at 980px 620px, rgba(255,255,255,0.86), transparent),
+    radial-gradient(1.5px 1.5px at 1320px 560px, rgba(255,255,255,0.92), transparent),
+    radial-gradient(1.5px 1.5px at 1560px 700px, rgba(255,255,255,0.85), transparent);
+  background-size: 1800px 900px;
+  animation: driftStarsB 180s linear infinite;
+  opacity: 0.8;
+}
+
+.stars-large {
+  background-image:
+    radial-gradient(2px 2px at 180px 120px, rgba(255,255,255,1), transparent),
+    radial-gradient(2px 2px at 640px 180px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(2px 2px at 1020px 90px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(2px 2px at 1480px 180px, rgba(255,255,255,1), transparent),
+    radial-gradient(2px 2px at 300px 520px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(2px 2px at 820px 620px, rgba(255,255,255,1), transparent),
+    radial-gradient(2px 2px at 1410px 560px, rgba(255,255,255,0.95), transparent),
+    radial-gradient(2px 2px at 1700px 720px, rgba(255,255,255,0.9), transparent);
+  background-size: 1800px 900px;
+  animation: driftStarsC 240s linear infinite;
   opacity: 0.95;
 }
 
-.twinkling {
+.twinkle-layer {
   background:
-    radial-gradient(circle at 20% 20%, rgba(101,214,255,0.10) 0%, transparent 28%),
-    radial-gradient(circle at 80% 30%, rgba(139,255,176,0.08) 0%, transparent 24%),
-    radial-gradient(circle at 50% 70%, rgba(101,214,255,0.06) 0%, transparent 32%);
-  animation: pulseSky 9s ease-in-out infinite alternate;
-  opacity: 0.55;
+    radial-gradient(circle at 18% 22%, rgba(109,220,255,0.12) 0%, transparent 18%),
+    radial-gradient(circle at 78% 30%, rgba(155,255,203,0.10) 0%, transparent 16%),
+    radial-gradient(circle at 54% 70%, rgba(109,220,255,0.07) 0%, transparent 20%);
+  animation: twinkleGlow 8s ease-in-out infinite alternate;
+  opacity: 0.7;
 }
 
-/* ===== SHOOTING STARS ===== */
-.shooting-stars span {
+/* =========================
+   METEORS
+========================= */
+
+.shooting-stars {
+  z-index: 1;
+}
+
+.meteor {
   position: absolute;
-  width: 180px;
+  width: 220px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.98));
   border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.98));
   opacity: 0;
-  transform: rotate(-25deg);
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+  transform: rotate(-28deg);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.75));
 }
 
-.shooting-stars span::before {
+.meteor::before {
   content: "";
   position: absolute;
   right: 0;
   top: -1px;
-  width: 8px;
+  width: 10px;
   height: 4px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 12px rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 0 14px rgba(255,255,255,0.95);
 }
 
-.shooting-stars span.fast {
-  animation: shootFast 4.8s linear infinite;
+.meteor.fast {
+  animation: meteorFast 5s linear infinite;
 }
 
-.shooting-stars span.medium {
-  animation: shootMedium 7s linear infinite;
+.meteor.medium {
+  animation: meteorMedium 8s linear infinite;
 }
 
-.shooting-stars span.slow {
-  animation: shootSlow 10s linear infinite;
+.meteor.slow {
+  animation: meteorSlow 12s linear infinite;
 }
 
-.shooting-stars span:nth-child(1)  { top: 10%; left: 78%; animation-delay: 0s; }
-.shooting-stars span:nth-child(2)  { top: 18%; left: 62%; animation-delay: 1.5s; }
-.shooting-stars span:nth-child(3)  { top: 24%; left: 88%; animation-delay: 2.7s; }
-.shooting-stars span:nth-child(4)  { top: 14%; left: 45%; animation-delay: 0.8s; }
-.shooting-stars span:nth-child(5)  { top: 30%; left: 74%; animation-delay: 3.6s; }
-.shooting-stars span:nth-child(6)  { top: 38%; left: 92%; animation-delay: 5s; }
-.shooting-stars span:nth-child(7)  { top: 8%;  left: 58%; animation-delay: 4.1s; }
-.shooting-stars span:nth-child(8)  { top: 22%; left: 35%; animation-delay: 6.4s; }
-.shooting-stars span:nth-child(9)  { top: 27%; left: 67%; animation-delay: 7.3s; }
-.shooting-stars span:nth-child(10) { top: 34%; left: 52%; animation-delay: 2.1s; }
+.meteor:nth-child(1)  { top: 8%;  left: 82%; animation-delay: 0s; }
+.meteor:nth-child(2)  { top: 16%; left: 58%; animation-delay: 1.8s; }
+.meteor:nth-child(3)  { top: 22%; left: 88%; animation-delay: 3.4s; }
+.meteor:nth-child(4)  { top: 12%; left: 42%; animation-delay: 0.9s; }
+.meteor:nth-child(5)  { top: 28%; left: 74%; animation-delay: 2.6s; }
+.meteor:nth-child(6)  { top: 34%; left: 92%; animation-delay: 4.8s; }
+.meteor:nth-child(7)  { top: 10%; left: 64%; animation-delay: 5.5s; }
+.meteor:nth-child(8)  { top: 20%; left: 36%; animation-delay: 6.8s; }
+.meteor:nth-child(9)  { top: 26%; left: 68%; animation-delay: 7.9s; }
+.meteor:nth-child(10) { top: 32%; left: 52%; animation-delay: 2.2s; }
+.meteor:nth-child(11) { top: 6%;  left: 72%; animation-delay: 8.4s; }
+.meteor:nth-child(12) { top: 18%; left: 84%; animation-delay: 9.1s; }
+.meteor:nth-child(13) { top: 24%; left: 48%; animation-delay: 10.2s; }
+.meteor:nth-child(14) { top: 30%; left: 79%; animation-delay: 11s; }
 
-/* ===== CARD ===== */
+/* =========================
+   CARD
+========================= */
+
 .card {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1100px;
-  padding: 72px 64px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 1120px;
+  padding: 76px 68px;
+  border: 1px solid var(--card-border);
   border-radius: 30px;
-  background: var(--card);
-  backdrop-filter: blur(10px);
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
   box-shadow:
     var(--shadow),
-    0 0 60px rgba(101, 214, 255, 0.05);
+    0 0 65px rgba(109, 220, 255, 0.05),
+    inset 0 1px 0 rgba(255,255,255,0.05);
   text-align: center;
 }
 
@@ -147,25 +255,27 @@ body {
   display: inline-block;
   margin-bottom: 26px;
   padding: 10px 18px;
-  border: 1px solid rgba(101, 214, 255, 0.35);
+  border: 1px solid rgba(109, 220, 255, 0.34);
   border-radius: 999px;
   color: var(--accent);
   font-size: 14px;
   letter-spacing: 3px;
   font-weight: 700;
-  box-shadow: 0 0 18px rgba(101,214,255,0.12);
+  box-shadow: 0 0 20px rgba(109,220,255,0.10);
 }
 
 h1 {
-  font-size: clamp(3.8rem, 8vw, 6.8rem);
-  line-height: 1.02;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1;
   margin-bottom: 12px;
   letter-spacing: -2px;
-  text-shadow: 0 0 24px rgba(255,255,255,0.08);
+  text-shadow:
+    0 0 18px rgba(255,255,255,0.05),
+    0 0 30px rgba(109,220,255,0.08);
 }
 
 .owner {
-  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
   color: var(--accent);
   margin-bottom: 18px;
   font-weight: 600;
@@ -173,10 +283,10 @@ h1 {
 }
 
 .subtitle {
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-size: clamp(1.55rem, 2.4vw, 2.15rem);
   color: var(--muted);
   margin-bottom: 38px;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .lines {
@@ -186,9 +296,10 @@ h1 {
 }
 
 .lines p {
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-size: clamp(1.28rem, 2vw, 1.75rem);
   line-height: 1.7;
   color: #e8edf8;
+  text-shadow: 0 0 10px rgba(255,255,255,0.02);
 }
 
 .actions {
@@ -203,14 +314,16 @@ h1 {
   padding: 18px 34px;
   border-radius: 16px;
   font-weight: 800;
-  font-size: 1.2rem;
-  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1.18rem;
+  transition: transform 0.22s ease, opacity 0.22s ease, box-shadow 0.22s ease;
 }
 
 .btn.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #08111e;
-  box-shadow: 0 12px 34px rgba(101, 214, 255, 0.25);
+  color: #07111d;
+  box-shadow:
+    0 12px 34px rgba(109, 220, 255, 0.22),
+    0 0 20px rgba(109, 220, 255, 0.10);
 }
 
 .btn:hover {
@@ -220,85 +333,119 @@ h1 {
 
 .footer {
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1.04rem;
   letter-spacing: 0.4px;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes pulseSky {
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes driftStarsA {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-180px); }
+}
+
+@keyframes driftStarsB {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-260px); }
+}
+
+@keyframes driftStarsC {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-120px); }
+}
+
+@keyframes twinkleGlow {
   0% {
+    opacity: 0.45;
     transform: scale(1);
-    opacity: 0.4;
   }
   100% {
+    opacity: 0.78;
     transform: scale(1.04);
-    opacity: 0.6;
   }
 }
 
-@keyframes shootFast {
+@keyframes floatNebula {
   0% {
-    opacity: 0;
-    transform: translate(0, 0) rotate(-25deg);
-  }
-  6% {
-    opacity: 1;
-  }
-  20% {
-    opacity: 0;
-    transform: translate(-560px, 290px) rotate(-25deg);
+    transform: translate(0, 0) scale(1);
   }
   100% {
-    opacity: 0;
-    transform: translate(-560px, 290px) rotate(-25deg);
+    transform: translate(20px, -12px) scale(1.08);
   }
 }
 
-@keyframes shootMedium {
+@keyframes meteorFast {
   0% {
     opacity: 0;
-    transform: translate(0, 0) rotate(-25deg);
+    transform: translate(0, 0) rotate(-28deg);
   }
   8% {
     opacity: 1;
   }
-  28% {
+  24% {
     opacity: 0;
-    transform: translate(-520px, 270px) rotate(-25deg);
+    transform: translate(-620px, 320px) rotate(-28deg);
   }
   100% {
     opacity: 0;
-    transform: translate(-520px, 270px) rotate(-25deg);
+    transform: translate(-620px, 320px) rotate(-28deg);
   }
 }
 
-@keyframes shootSlow {
+@keyframes meteorMedium {
   0% {
     opacity: 0;
-    transform: translate(0, 0) rotate(-25deg);
+    transform: translate(0, 0) rotate(-28deg);
   }
   10% {
     opacity: 1;
   }
-  36% {
+  34% {
     opacity: 0;
-    transform: translate(-480px, 250px) rotate(-25deg);
+    transform: translate(-560px, 290px) rotate(-28deg);
   }
   100% {
     opacity: 0;
-    transform: translate(-480px, 250px) rotate(-25deg);
+    transform: translate(-560px, 290px) rotate(-28deg);
   }
 }
 
-/* ===== RESPONSIVE ===== */
+@keyframes meteorSlow {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-28deg);
+  }
+  12% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0;
+    transform: translate(-500px, 260px) rotate(-28deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-500px, 260px) rotate(-28deg);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 900px) {
   .card {
-    padding: 48px 28px;
+    padding: 50px 28px;
     border-radius: 24px;
   }
 
   h1 {
     letter-spacing: -1px;
+  }
+
+  .nebula {
+    opacity: 0.16;
   }
 }
 
@@ -307,10 +454,15 @@ h1 {
     overflow: auto;
   }
 
+  .hero {
+    padding: 18px;
+  }
+
   .card {
-    padding: 34px 20px;
+    padding: 36px 20px;
     border-radius: 20px;
-    background: rgba(5, 14, 28, 0.58);
+    background: rgba(7, 16, 30, 0.48);
+    backdrop-filter: blur(6px);
   }
 
   .badge {
@@ -325,5 +477,9 @@ h1 {
   .btn {
     width: 100%;
     max-width: 280px;
+  }
+
+  .meteor {
+    width: 140px;
   }
 }
