@@ -19,6 +19,8 @@
 
       <h1 id="title">Stealth Edge</h1>
 
+      <p class="owner" id="owner">Ahmad Abo-Alola</p>
+
       <p class="subtitle" id="subtitle">
         Electronics meets artificial intelligence.
       </p>
@@ -42,7 +44,7 @@
       </div>
 
       <p class="footer" id="footerText">
-        Built by Ahmad Abo-Alola
+        © 2026 Stealth Edge™. All rights reserved By Ahmad Abo-Alola.
       </p>
     </section>
   </main>
@@ -52,6 +54,7 @@
       .then((response) => response.json())
       .then((data) => {
         document.getElementById("title").textContent = data.title;
+        document.getElementById("owner").textContent = data.owner;
         document.getElementById("subtitle").textContent = data.subtitle;
 
         const linesContainer = document.getElementById("lines");

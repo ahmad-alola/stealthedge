@@ -7,13 +7,13 @@
 :root {
   --bg-1: #07111f;
   --bg-2: #0f1f38;
-  --card: rgba(10, 18, 32, 0.72);
+  --card: rgba(10, 18, 32, 0.78);
   --border: rgba(255, 255, 255, 0.12);
   --text: #f5f7fb;
   --muted: #b8c2d6;
   --accent: #65d6ff;
   --accent-2: #8bffb0;
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 28px;
   position: relative;
   overflow: hidden;
 }
@@ -42,7 +42,7 @@ body {
     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 36px 36px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.45));
   pointer-events: none;
 }
 
@@ -50,48 +50,58 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 760px;
-  padding: 40px 28px;
+  max-width: 1080px;
+  padding: 72px 64px;
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 30px;
   background: var(--card);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   box-shadow: var(--shadow);
   text-align: center;
 }
 
 .badge {
   display: inline-block;
-  margin-bottom: 18px;
-  padding: 8px 14px;
+  margin-bottom: 26px;
+  padding: 10px 18px;
   border: 1px solid rgba(101, 214, 255, 0.35);
   border-radius: 999px;
   color: var(--accent);
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 14px;
+  letter-spacing: 3px;
   font-weight: 700;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 6vw, 4.4rem);
-  line-height: 1.05;
-  margin-bottom: 14px;
+  font-size: clamp(3.6rem, 8vw, 6.6rem);
+  line-height: 1.02;
+  margin-bottom: 12px;
+  letter-spacing: -2px;
+}
+
+.owner {
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  color: var(--accent);
+  margin-bottom: 18px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
   color: var(--muted);
-  margin-bottom: 26px;
+  margin-bottom: 38px;
+  line-height: 1.5;
 }
 
 .lines {
   display: grid;
-  gap: 12px;
-  margin-bottom: 28px;
+  gap: 18px;
+  margin-bottom: 42px;
 }
 
 .lines p {
-  font-size: 1.05rem;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
   line-height: 1.7;
   color: #e8edf8;
 }
@@ -99,22 +109,23 @@ h1 {
 .actions {
   display: flex;
   justify-content: center;
-  margin-bottom: 22px;
+  margin-bottom: 34px;
 }
 
 .btn {
   display: inline-block;
   text-decoration: none;
-  padding: 14px 22px;
-  border-radius: 14px;
-  font-weight: 700;
+  padding: 18px 34px;
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 1.2rem;
   transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #08111e;
-  box-shadow: 0 10px 30px rgba(101, 214, 255, 0.25);
+  box-shadow: 0 12px 34px rgba(101, 214, 255, 0.25);
 }
 
 .btn:hover {
@@ -124,16 +135,38 @@ h1 {
 
 .footer {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 900px) {
+  .card {
+    padding: 48px 28px;
+    border-radius: 24px;
+  }
+
+  h1 {
+    letter-spacing: -1px;
+  }
 }
 
 @media (max-width: 640px) {
   .card {
-    padding: 28px 20px;
+    padding: 34px 20px;
     border-radius: 20px;
   }
 
+  .badge {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
   .lines p {
-    font-size: 0.98rem;
+    font-size: 1.08rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
   }
 }
